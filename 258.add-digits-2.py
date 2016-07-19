@@ -14,7 +14,7 @@ class Solution(object):
     TODO
     Follow up:
     Could you do it without any loop/recursion in O(1) runtime?
-    leetcode test runtime 84ms
+    leetcode test runtime 68ms
     '''
     def addDigits(self, num):
         """
@@ -22,10 +22,9 @@ class Solution(object):
         :rtype: int
         """
         s = sum([int(i) for i in str(num)])
-        if s >= 10:
-            return self.addDigits(s)
+        while s>= 10:
+            s = sum([int(i) for i in str(s)])
         return s
-
 
 if __name__ == '__main__':
     solution = Solution()
